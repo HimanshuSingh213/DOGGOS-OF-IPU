@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🐶 Doggos of IPU
 
-## Getting Started
+**Doggos of IPU** is a modern web platform built to support animal welfare initiatives at IPU.  
+The website focuses on **adoption, medical care, events, donations, and community engagement**, providing a smooth and engaging user experience.
 
-First, run the development server:
+---
+
+## 🌟 Features
+
+- 🏠 Informative Home Page with mission & highlights  
+- 🐕 Adoption listings with detailed profiles  
+- 🖼️ Image Gallery for rescued & adopted dogs  
+- 🏥 Medical & Care awareness section  
+- 💖 Donation support for animal welfare  
+- 🤝 Join Us / Volunteer onboarding  
+- 📢 Events, announcements & blogs (Admin managed)  
+- 🔐 Admin Dashboard to manage content & uploads  
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Next.js (App Router)**
+- **React (JavaScript)**
+- **Tailwind CSS**
+- **GSAP** (Animations)
+
+### Backend / Services
+- **Next.js API Routes**
+- **Database** (MongoDB / Supabase – configurable)
+- **Image Storage** (Supabase Storage / Cloudinary)
+- **Authentication** (Admin access)
+
+---
+
+## 📂 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+doggos-of-ipu/
+├── src/
+│   ├── app/
+│   │   ├── page.jsx            # Home page
+│   │   ├── layout.jsx          # Root layout
+│   │   ├── adoption/           # Adoption page
+│   │   ├── gallery/            # Gallery page
+│   │   ├── medical/            # Medical & care page
+│   │   ├── donate/             # Donation page
+│   │   ├── join-us/            # Volunteer onboarding
+│   │   └── api/                # Backend API routes
+│   ├── components/             # Reusable UI components
+│   ├── lib/                    # Database, auth & utilities
+│   ├── assets/                 # Static images & icons
+│   └── styles/                 # Global styles (optional)
+├── public/                     # Public assets
+├── README.md
+└── package.json
