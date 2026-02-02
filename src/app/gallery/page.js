@@ -621,7 +621,7 @@ export default function GalleryPage() {
           className="inline-flex items-center gap-3 bg-white/20 backdrop-blur px-5 py-3 rounded-full hover:bg-white/30 transition"
         >
           <img
-            src="/gallery-section-images/insta-logo.png"
+            src="/insta-logo.png"
             className="w-8 h-8"
             alt="Instagram"
           />
