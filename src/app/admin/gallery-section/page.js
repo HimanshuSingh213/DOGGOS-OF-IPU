@@ -53,10 +53,15 @@ export default function AdminGallery() {
   /* ================= FETCH IMAGES ================= */
 
   const fetchImages = async () => {
+  try {
     const res = await fetch("/api/gallery/get");
-    const data = await res.json();
-    setImages(data);
-  };
+    const json = await res.json();   
+    setImages(json || []);      
+  } catch (err) {
+    console.error("Failed to fetch images:", err);
+    setImages([]);                   
+  }
+};
 
   useEffect(() => {
     fetchImages();

@@ -78,28 +78,41 @@ export default function GalleryPage() {
   }, []);
 
   /* ================= FETCH IMAGES ================= */
+useEffect(() => {
+  fetch("/api/gallery/get")
+    .then(res => res.json())
+    .then(data => {
+      if (Array.isArray(data)) {
+        setImages(data);
+      } else {
+        console.error("Gallery API error:", data);
+        setImages([]); 
+      }
+      setLoading(false);
+    })
+    .catch(err => {
+      console.error(err);
+      setImages([]);
+      setLoading(false);
+    });
+}, []);
 
-  useEffect(() => {
-    fetch("/api/gallery/get")
-      .then(res => res.json())
-      .then(data => {
-  setImages(data);
-  setLoading(false);
-});
-
-  }, []);
 
   /* ================= FILTER LOGIC ================= */
 
-  const filteredItems =
-    activeCategory === "All"
-      ? images
-      : activeCategory === "More"
-        ? images.filter(item =>
-            item.category === "Adoption" ||
-            item.category === "Event"
-          )
-        : images.filter(item => item.category === activeCategory);
+/* ================= FILTER LOGIC ================= */
+
+const safeImages = Array.isArray(images) ? images : [];
+
+const filteredItems =
+  activeCategory === "All"
+    ? safeImages
+    : activeCategory === "More"
+      ? safeImages.filter(item =>
+          item.category === "Adoption" ||
+          item.category === "Event"
+        )
+      : safeImages.filter(item => item.category === activeCategory);
 
   /* ================= HERO ANIMATION ================= */
 

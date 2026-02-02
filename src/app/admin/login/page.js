@@ -13,29 +13,34 @@ export default function AdminLogin() {
   const router = useRouter()
   const supabase = createClient()
 
-  const handleLogin = async (e) => {
-    e.preventDefault()
-    setError('')
-    setLoading(true)
+const handleLogin = async (e) => {
+  e.preventDefault()
+  setError('')
+  setLoading(true)
 
-    try {
-      // Bas login attempt
-      const { error: signInError } = await supabase.auth.signInWithPassword({
+  try {
+    const { data, error: signInError } =
+      await supabase.auth.signInWithPassword({
         email,
         password,
       })
 
-      if (signInError) throw signInError
+    if (signInError) throw signInError
 
-      // Success → dashboard redirect
-      router.push('/admin')
-      router.refresh()
-    } catch (err) {
-      setError(err.message)
-    } finally {
-      setLoading(false)
+    // ADMIN EMAIL CHECK
+    if (data.user.email !== process.env.NEXT_PUBLIC_ADMIN_EMAIL) {
+      await supabase.auth.signOut()
+      throw new Error('You are not authorized to access admin panel')
     }
+
+    router.push('/admin')
+    router.refresh()
+  } catch (err) {
+    setError(err.message)
+  } finally {
+    setLoading(false)
   }
+}
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-900 to-slate-700">

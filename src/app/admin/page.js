@@ -10,13 +10,14 @@ export default async function AdminDashboard() {
     data: { user },
   } = await supabase.auth.getUser()
 
-  if (!user) {
+  if (!user || user.email !== process.env.NEXT_PUBLIC_ADMIN_EMAIL) {
     redirect('/admin/login')
   }
 
   // Fetch real stats from database
   const { data: allDogs } = await supabase.from('adoptions').select('*')
   const { data: allEvents } = await supabase.from('events').select('*') // events table
+  const { data: allPictures } = await supabase.from('gallery').select('*')
 
   const stats = {
     totalDogs: allDogs?.length || 0,
@@ -24,6 +25,7 @@ export default async function AdminDashboard() {
     adopted: allDogs?.filter(d => d.status === 'adopted').length || 0,
     vaccinated: allDogs?.filter(d => d.vaccinated === true).length || 0,
     totalEvents: allEvents?.length || 0, 
+    totalPictures: allPictures?.length || 0,
   }
 
   return (
@@ -113,7 +115,29 @@ export default async function AdminDashboard() {
             </div>
             <p className="text-xs mt-3" style={{ color: 'var(--text-gray)' }}>Upcoming & Past</p>
           </div>
+       
+        {/* Gallery Pictures */}
+        <div 
+          className="p-6 rounded-xl shadow-sm border"
+          style={{ backgroundColor: 'var(--earthy-cream)', borderColor: 'var(--accent-coral)' }}
+        >
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium" style={{ color: 'var(--text-dark)' }}>
+                Gallery Pictures
+              </p>
+              <p className="text-4xl font-bold mt-2" style={{ color: 'var(--accent-coral)' }}>
+                {stats.totalPictures}
+              </p>
+            </div>
+            <div className="text-5xl">🖼️</div>
+          </div>
+          <p className="text-xs mt-3" style={{ color: 'var(--text-gray)' }}>
+            Pictures uploaded
+          </p>
         </div>
+      </div>
+
 
         {/* Quick Actions */}
         <div className="bg-white p-6 rounded-xl shadow-sm border mb-8" style={{ borderColor: 'var(--border-light)' }}>
@@ -171,6 +195,22 @@ export default async function AdminDashboard() {
                 </div>
                 <p className="text-sm" style={{ color: 'var(--text-gray)' }}>View, edit, or delete events</p>
               </button>
+            </Link>
+            <Link href="/admin/gallery-section">
+             <button 
+               className="w-full p-5 border-2 rounded-xl transition-all text-left hover:shadow-md"
+               style={{ borderColor: 'var(--accent-coral)', backgroundColor: 'var(--earthy-cream)' }}
+             >
+               <div className="flex items-center gap-3 mb-2">
+                 <span className="text-3xl">🖼️</span>
+                 <p className="font-semibold text-lg" style={{ color: 'var(--text-dark)' }}>
+                   Manage Gallery
+                 </p>
+               </div>
+               <p className="text-sm" style={{ color: 'var(--text-gray)' }}>
+                 Upload, edit or delete gallery photos
+               </p>
+             </button>
             </Link>
           </div>
         </div>
