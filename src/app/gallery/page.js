@@ -5,6 +5,7 @@ import gsap from "gsap";
 import Link from "next/link";
 
 
+
 /* ================= ICON IMPORTS ================= */
 
 import { IoPawSharp, IoSchoolSharp, IoCloseCircle } from "react-icons/io5";
@@ -19,6 +20,7 @@ import { MdMedicalServices } from "react-icons/md";
 export default function GalleryPage() {
 
   const [loading, setLoading] = useState(true);
+
 
 
 
@@ -103,7 +105,8 @@ export default function GalleryPage() {
 
   /* ================= HERO ANIMATION ================= */
 
-  useEffect(() => {
+useEffect(() => {
+  const ctx = gsap.context(() => {
     gsap.from(".hero-anim", {
       y: 50,
       opacity: 0,
@@ -111,8 +114,10 @@ export default function GalleryPage() {
       stagger: 0.15,
       ease: "power3.out"
     });
-  }, []);
+  });
 
+  return () => ctx.revert();
+}, []);
   /* ================= CUSTOM CURSOR ================= */
 
   useEffect(() => {
@@ -318,6 +323,9 @@ export default function GalleryPage() {
 
   return (
       <div className="min-h-screen" style={{ backgroundColor: "var(--base-white)" }}>
+
+
+
 
         {/* ================= HERo ================= */}
 

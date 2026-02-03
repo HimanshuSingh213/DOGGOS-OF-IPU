@@ -1,75 +1,49 @@
-"use client";
+"use client"
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import Link from "next/link";
-
-
+import Hero from '../../components/Hero';
+import AdoptSection from '../../components/AdoptSection';
+import ReportCase from '../../components/ReportCase';
+import WaysToHelp from '../../components/WaysToHelp';
+import MissionVision from '../../components/MissionVision';
+import Instagram from '../../components/Instagram';
+import RabiesCampus from '../../components/RabiesCampus';
+import CTASection from '../../components/CTASection';
+import Footer from '../../components/Footer';
+import LandingReveal from '../../components/LandingReveal';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const titleRef = useRef(null);
-  const textRef = useRef(null);
-  const btnRef = useRef(null);
+
+  const [showReveal, setShowReveal] = useState(false);
 
   useEffect(() => {
-    gsap.from([titleRef.current, textRef.current, btnRef.current], {
-      opacity: 0,
-      y: 40,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: "power3.out",
-    });
+    const isReload =
+      performance.getEntriesByType("navigation")[0]?.type === "reload";
+
+    const hasSeen = sessionStorage.getItem("seenReveal");
+
+    // Show if first visit OR refresh
+    if (!hasSeen || isReload) {
+      setShowReveal(true);
+      sessionStorage.setItem("seenReveal", "true");
+    }
   }, []);
 
   return (
-    <main
-      className="min-h-screen flex flex-col items-center justify-center px-4 text-center"
-      style={{ backgroundColor: "var(--primary-sky)" }}
-    >
-      <h1
-        ref={titleRef}
-        className="text-5xl font-bold mb-4"
-      >
-        🐾 Doggos of IPU
-      </h1>
+    <>
+      {showReveal && (
+        <LandingReveal onFinish={() => setShowReveal(false)} />
+      )}
 
-      <p
-        ref={textRef}
-        className="text-lg max-w-xl mb-6"
-        style={{ color: "var(--text-gray)" }}
-      >
-        A student-led community creating a safer and kinder campus
-        for our doggos.
-      </p>
-
-      <div ref={btnRef} className="flex gap-4">
-        <Link href="/adoption">
-          <button
-            className="px-6 py-3 rounded-lg text-white text-lg hover:scale-105 transition"
-            style={{ backgroundColor: "var(--primary-teal)" }}
-          >
-            Adopt a Dog 🐶
-          </button>
-        </Link>
-
-        <button
-          className="px-6 py-3 rounded-lg text-lg border hover:scale-105 transition"
-          style={{
-            backgroundColor: "var(--base-white)",
-            borderColor: "var(--border-light)",
-            color: "var(--text-dark)",
-          }}
-        >
-          Join as Volunteer 🤍
-        </button>
-
-        <Link href="/join-us">
-  <button className="bg-white px-6 py-3 rounded-lg">
-    Join-Us
-  </button>
-</Link>
-
-      </div>
-    </main>
+      <Hero />
+      <AdoptSection />
+      <ReportCase />
+      <WaysToHelp />
+      <MissionVision />
+      <Instagram />
+      <RabiesCampus />
+      <CTASection />
+      <Footer />
+    </>
   );
 }

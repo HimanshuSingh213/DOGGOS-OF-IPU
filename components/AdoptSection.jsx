@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+
+
 import { ArrowRight } from 'lucide-react';
 
 const dogs = [
@@ -134,9 +136,12 @@ export default function AdoptSection() {
           <button className="flex items-center gap-2">
             VIEW MORE <ArrowRight />
           </button>
-          <button className="flex items-center gap-2">
-            EXPLORE GALLERY <ArrowRight />
-          </button>
+
+  <button className="flex items-center gap-2">
+    EXPLORE GALLERY <ArrowRight />
+  </button>
+
+
         </div>
       </div>
     </section>

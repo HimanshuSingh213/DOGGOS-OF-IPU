@@ -1,4 +1,5 @@
 import React from 'react';
+import  "./style.css"
 
 export default function Home() {
   return (
@@ -36,7 +37,6 @@ export default function Home() {
         {/* Left Card: Contribution */}
         <div className="card contribution-card">
           <h2>YOUR CONTRIBUTION</h2>
-          
           <div className="icon-row">
             <div className="icon-item">
               <div className="img-circle">
