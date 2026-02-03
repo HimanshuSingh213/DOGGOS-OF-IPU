@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
 
 
 /* ================= ICON IMPORTS ================= */
@@ -331,7 +332,7 @@ const filteredItems =
 
   return (
       <div className="min-h-screen" style={{ backgroundColor: "var(--base-white)" }}>
-
+        <Navbar />
         {/* ================= HERo ================= */}
 
         <section className="relative min-h-125 flex flex-col items-center justify-center text-center px-4 py-16 bg-[url('/gallery-section-images/gallery-header-bg.png')] bg-cover">

@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { IoPawSharp, IoSchoolSharp, IoCloseCircle } from "react-icons/io5";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,7 +17,8 @@ export default function AboutSection() {
   const missionRef = useRef(null);
 
   useEffect(() => {
-    // Animate heading
+  const ctx = gsap.context(() => {
+    // Heading
     gsap.from(headingRef.current, {
       y: 30,
       duration: 1,
@@ -26,7 +29,7 @@ export default function AboutSection() {
       },
     });
 
-    // Animate description
+    // Description
     gsap.from(descRef.current, {
       y: 20,
       duration: 0.8,
@@ -38,11 +41,12 @@ export default function AboutSection() {
       },
     });
 
-    // Animate stat cards
-    const cards = cardsRef.current;
-    cards.forEach((card, index) => {
-      gsap.set(card, { opacity: 1, y: 0 });
+    // Stat cards
+    cardsRef.current.forEach((card, index) => {
+      if (!card) return;
+
       gsap.from(card, {
+        opacity: 0,
         y: 40,
         duration: 0.7,
         delay: index * 0.1,
@@ -52,21 +56,18 @@ export default function AboutSection() {
           start: "top 85%",
           once: true,
         },
-      
       });
     });
 
-    // Animate mission
-    gsap.from(missionRef.current, {
-      y: 30,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: missionRef.current,
-        start: "top 85%",
-        once: true,
-      },
-    });
-  }, []);
+    ScrollTrigger.refresh();
+  }, sectionRef);
+
+  return () => {
+    ctx.revert();
+    ScrollTrigger.getAll().forEach(t => t.kill());
+  };
+}, []);
+
 
   const stats = [
     { number: "60+", label: "Dogs Vaccinated", image: "/stat1.jpg" },
@@ -90,7 +91,8 @@ export default function AboutSection() {
           className="text-5xl md:text-6xl font-bold text-center mb-8"
           style={{ color: "var(--text-dark)" }}
         >
-          🐾About Us🐾
+          About Us
+          <IoPawSharp className="ml-2 inline-block" style={{ color: "var(--primary-teal)" }} />
         </h2>
 
         {/* Description */}

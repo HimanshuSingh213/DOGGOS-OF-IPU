@@ -1,134 +1,96 @@
-import React from 'react';
-import './donate.css';
-export default function Home() {
+"use client";
+
+import Image from "next/image";
+import ContactSection from "@/components/ContactSection";
+
+export default function DonatePage() {
   return (
-    <main>
-      {/* Navbar */}
-      <nav className="navbar">
-        <div className="logo">
-          <img src="/logo.png" alt="Doggos IPU" />
-          <div className="logo-text">
-            <strong>DOGGOS</strong>
-            <span>IPU</span>
-          </div>
-        </div>
+    <main className="bg-white text-gray-800">
 
-        <div className="nav-pill">
-          <a href="#">HOME</a>
-          <a href="#">ABOUT US</a>
-          <a href="#">SUPPORT US</a>
-          <a href="#">JOIN US</a>
-          <a href="#">CONTACT US</a>
-        </div>
-      </nav>
+      {/* HERO */}
+      <section
+        className="relative h-175 flex items-end justify-center text-center"
+        style={{
+          background: "url('/hero.png') center bottom / cover no-repeat",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60 mt-80" />
 
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <h1>Make a Difference</h1>
-          <p>Support our furry friends</p>
-          <button className="btn-primary">DONATE NOW</button>
+        <div className="relative mb-28 text-white px-6">
+          <h1 className="text-[48px] md:text-[110px] font-bold leading-none">
+            Make a Difference
+          </h1>
+          <p className="text-2xl md:text-5xl font-serif mt-2">
+            Support our furry friends
+          </p>
+
+          <button className="mt-6 px-10 py-3 rounded-full bg-teal-700 text-white font-bold tracking-wide text-lg hover:bg-teal-800 transition">
+            DONATE NOW
+          </button>
         </div>
       </section>
 
-      {/* Cards Section */}
-      <section className="cards-container">
-        {/* Left Card: Contribution */}
-        <div className="card contribution-card">
-          <h2>YOUR CONTRIBUTION</h2>
-          
-          <div className="icon-row">
-            <div className="icon-item">
-              <div className="img-circle">
-                <img src="/dog1.png" alt="Feed a day" />
+      {/* CARDS */}
+      <section className="flex flex-col lg:flex-row gap-8 justify-center px-6 py-16">
+        {/* Contribution Card */}
+        <div className="w-full max-w-120 bg-[#eef1f3] border-2 border-gray-400 rounded-2xl p-8 text-center">
+          <h2 className="text-sm font-bold tracking-wide mb-6">
+            YOUR CONTRIBUTION
+          </h2>
+
+          <div className="flex justify-around mb-6">
+            {[
+              { img: "/dog1.png", label: "Feed a day" },
+              { img: "/dog2.png", label: "Vaccinations" },
+              { img: "/dog3.png", label: "Medical Aid" },
+            ].map((item) => (
+              <div key={item.label} className="flex flex-col items-center gap-2">
+                <div className="w-22.5 h-22.5 rounded-full overflow-hidden border-4 border-teal-300">
+                  <Image src={item.img} alt={item.label} width={90} height={90} />
+                </div>
+                <span className="font-serif font-semibold text-lg">
+                  {item.label}
+                </span>
               </div>
-              <span>Feed a day</span>
-            </div>
-            <div className="icon-item">
-              <div className="img-circle">
-                <img src="/dog2.png" alt="Vaccinations" />
-              </div>
-              <span>Vaccinations</span>
-            </div>
-            <div className="icon-item">
-               <div className="img-circle">
-                <img src="/dog3.png" alt="Medical Aid" />
-              </div>
-              <span>Medical Aid</span>
-            </div>
+            ))}
           </div>
 
-          <p className="card-text">
-            Every rupee donated goes directly to rescuing, rehabilitating,
-            and finding homes for dogs in need. We ensures full transparency in our operations.
+          <p className="font-serif text-left text-gray-700 leading-relaxed">
+            Every rupee donated goes directly to rescuing, rehabilitating, and
+            finding homes for dogs in need. We ensure full transparency in our
+            operations.
           </p>
         </div>
 
-        <div className="card transparency-card">
-          <h2>TRANSPARENCY & TRUST</h2>
-          
-          <div className="payment-grid">
-            <div className="qr-box">
-              <img src="/qr.png" alt="QR Code" className="qr-img" />
-            </div>
-            <div className="payment-logos">
-              <img src="/upi.png" alt="UPI" className="pay-logo" /> 
-              <img src="/paytm.png" alt="Paytm" className="pay-logo" />
-              <div className="small-logos">
-                <img src="/gpay.png" alt="GPay" />
-                <img src="/phonepe.png" alt="PhonePe" />
+        {/* Transparency Card */}
+        <div className="w-full max-w-120 bg-[#eef1f3] border-2 border-gray-400 rounded-2xl p-8 text-center">
+          <h2 className="text-sm font-bold tracking-wide mb-6">
+            TRANSPARENCY & TRUST
+          </h2>
+
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            <Image src="/qr.png" alt="QR Code" width={190} height={190} />
+
+            <div className="flex flex-col items-start gap-3">
+              <Image src="/upi.png" alt="UPI" width={120} height={60} />
+              <Image src="/paytm.png" alt="Paytm" width={120} height={60} />
+              <div className="flex gap-6 self-center mt-2">
+                <Image src="/gpay.png" alt="GPay" width={45} height={45} />
+                <Image src="/phonepe.png" alt="PhonePe" width={45} height={45} />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Thank You Banner */}
-      <div className="banner">
-        <p>Thank you for generous contribution! Your support helps us provide love and shelter to dogs in need.</p>
+      {/* THANK YOU BANNER */}
+      <div className="mx-6 my-10 bg-gray-200 rounded-[40px] px-6 py-10 text-center">
+        <p className="font-serif text-xl md:text-2xl font-bold">
+          Thank you for your generous contribution! Your support helps us provide
+          love and shelter to dogs in need.
+        </p>
       </div>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          {/* Left Column */}
-          <div className="footer-left">
-            <div className="footer-logo">
-              <img src="/logo.png" alt="Logo" />
-              <div className="logo-text-brown">
-                <strong>DOOGOS</strong>
-                <span>IPU</span>
-              </div>
-            </div>
-            <p className="footer-desc">Help the life of our little paw friends. Contribute with a donation or help to adopt a pet.</p>
-            
-            <div className="footer-links">
-              <p><strong>Privacy</strong></p>
-              <p><strong>Terms and Condition</strong></p>
-            </div>
-          </div>
-
-          {/* Right Column */}
-          <div className="footer-right">
-            <h3>CONTACT US</h3>
-            <div className="social-icons">
-              <img src="/instagram.png" alt="Insta" />
-              <img src="/whatsapp.png" alt="Whatsapp" />
-              <img src="/linkedin.png" alt="Linkedin" />
-            </div>
-            
-            <div className="contact-info">
-              <p>✉ <strong>EMAIL:</strong> example@email.com</p>
-              <p>📍 <strong>ADDRESS:</strong> Guru Gobind Singh Indraprastha University, Sector-16C Dwarka, New Delhi 110078.</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="footer-bottom">
-           <hr />
-          <p>© 2026 DOOGOS IPU. All Rights Reserved.</p>
-        </div>
-      </footer>
+      <ContactSection />
     </main>
   );
 }

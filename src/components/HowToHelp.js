@@ -13,7 +13,8 @@ export default function HowToHelp() {
   const titleRef = useRef(null);
   const cardsRef = useRef([]);
 
-  useEffect(() => {
+useEffect(() => {
+  const ctx = gsap.context(() => {
     gsap.from(titleRef.current, {
       y: 40,
       duration: 0.8,
@@ -25,8 +26,10 @@ export default function HowToHelp() {
     });
 
     cardsRef.current.forEach((card, index) => {
-      gsap.set(card, {opacity:1, y:0});
+      if (!card) return;
+
       gsap.from(card, {
+        opacity: 0,
         y: 60,
         duration: 1,
         ease: "power3.out",
@@ -38,7 +41,16 @@ export default function HowToHelp() {
         },
       });
     });
-  }, []);
+
+    ScrollTrigger.refresh();
+  }, sectionRef);
+
+  return () => {
+    ctx.revert();
+    ScrollTrigger.getAll().forEach(t => t.kill());
+  };
+}, []);
+
 
   const ways = [
     {
@@ -107,7 +119,7 @@ export default function HowToHelp() {
           Every action counts. Join us in creating a safer, kinder campus for our four-legged friends.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
           {ways.map((way, index) => (
             <Link href={way.link} key={index}>
               <div

@@ -33,3 +33,11 @@ body {
 .font-inter {
   font-family: var(--font-inter);
 }
+/* Paw cursor for campus map */
+.paw-cursor-map {
+  cursor: url('/pawsss.png') 16 16, pointer;
+}
+
+.paw-cursor-map:hover {
+  cursor: url('/pawsss.png') 16 16, pointer;
+}

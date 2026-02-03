@@ -79,7 +79,7 @@ export default function HeroSection() {
             <>
               Doggos
               <br />
-              <span style={{ color: "var(--earthy-brown)" }}>
+              <span style={{ color: "var(--accent-coral)" }}>
                 {displayedText.split('\n')[1]}
               </span>
             </>
