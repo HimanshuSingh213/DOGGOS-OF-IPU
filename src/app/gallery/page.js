@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
 
 
 /* ================= ICON IMPORTS ================= */
@@ -20,6 +19,7 @@ import { MdMedicalServices } from "react-icons/md";
 export default function GalleryPage() {
 
   const [loading, setLoading] = useState(true);
+
 
 
 
@@ -117,7 +117,8 @@ const filteredItems =
 
   /* ================= HERO ANIMATION ================= */
 
-  useEffect(() => {
+useEffect(() => {
+  const ctx = gsap.context(() => {
     gsap.from(".hero-anim", {
       y: 50,
       opacity: 0,
@@ -125,8 +126,10 @@ const filteredItems =
       stagger: 0.15,
       ease: "power3.out"
     });
-  }, []);
+  });
 
+  return () => ctx.revert();
+}, []);
   /* ================= CUSTOM CURSOR ================= */
 
   useEffect(() => {
@@ -333,6 +336,10 @@ const filteredItems =
   return (
       <div className="min-h-screen" style={{ backgroundColor: "var(--base-white)" }}>
         <Navbar />
+
+
+
+
         {/* ================= HERo ================= */}
 
         <section className="relative min-h-125 flex flex-col items-center justify-center text-center px-4 py-16 bg-[url('/gallery-section-images/gallery-header-bg.png')] bg-cover">
