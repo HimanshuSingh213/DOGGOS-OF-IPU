@@ -109,7 +109,7 @@ export default function MeetOurTeam() {
         { name: "Anika", role: "", image: "/team/anika.jpeg" },
         { name: "Aayushi Bisaria", role: "", image: "/team/aayushi.jpeg" },
         { name: "Ananya", role: "", image: "/team/ananya.jpeg" },
-        { name: "Sherodha Tripathi islls ", role: "", image: "/team/sherodha.jpeg" },
+        { name: "Sherodha Tripathi islls ", role: "", image: "/team/Sherodha.jpeg" },
       ],
     },
   ];
