@@ -32,14 +32,14 @@ export default function JoinUsPage() {
 
             <div className="mt-6 flex gap-4">
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSeUydyWVHgWnfoNjU6uGaUtrlrRNvCN8izgGhxsBeyJGv03dg/viewform"
+                href="#register"
                 className="bg-teal-500 text-white px-6 py-3 rounded-full font-medium hover:bg-teal-600 transition"
               >
                 Become a Volunteer
               </a>
 
               <a
-                href="#benefits"
+                href="https://chat.whatsapp.com/JFb6e4cQxqD81jUKbIxq63"
                 className="bg-white px-6 py-3 rounded-full font-medium border hover:bg-gray-50 transition"
               >
                 Join our Community
@@ -160,7 +160,7 @@ export default function JoinUsPage() {
             </p>
 
             <a
-              href="#"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfCToT_UqS5d9LLcvg7GwZ3XuZqh-GGsBWfwBQ6s9raPVOdvg/viewform"
               target="_blank"
               className="block mt-6 bg-teal-500 text-white py-3 rounded-full font-medium hover:bg-teal-600 transition"
             >
