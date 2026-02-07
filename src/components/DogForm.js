@@ -10,6 +10,7 @@ export default function DogForm({ initialData = null, isEdit = false }) {
 
   const [formData, setFormData] = useState({
     name: initialData?.name || '',
+    breed: initialData?.breed || '',
     age: initialData?.age || '',
     gender: initialData?.gender || 'male',
     vaccinated: initialData?.vaccinated || false,
@@ -187,6 +188,21 @@ export default function DogForm({ initialData = null, isEdit = false }) {
             className="w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 text-sm sm:text-base"
             style={{ borderColor: 'var(--border-light)', color: 'var(--text-dark)' }}
             placeholder="e.g., Buddy"
+          />
+        </div>
+         {/* Breed Field */}
+        <div>
+          <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text-dark)' }}>
+            Breed
+          </label>
+          <input
+            type="text"
+            name="breed"
+            value={formData.breed}
+            onChange={handleChange}
+            className="w-full px-3 sm:px-4 py-2 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 text-sm sm:text-base"
+            style={{ borderColor: 'var(--border-light)', color: 'var(--text-dark)' }}
+            placeholder="e.g., Indie / Labrador"
           />
         </div>
 
