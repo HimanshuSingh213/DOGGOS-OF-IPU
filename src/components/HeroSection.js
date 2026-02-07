@@ -75,13 +75,7 @@ export default function HeroSection() {
         >
           <span>Doggos </span>
           <span style={{ color: "var(--earthy-brown)" }}>of IPU <FaPaw className="inline-block ml-2" /> </span>
-          {displayedText.length < "Doggos of IPU".length && (
-            <span className="animate-pulse">|</span>
-          )}
-
-          {displayedText === "Doggos of IPU" && (
-            <span className="inline-block ml-4 text-5xl">🐾</span>
-          )}
+          {displayedText === "Doggos of IPU"}
         </h1>
 
         {/* Paragraph */}
