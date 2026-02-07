@@ -1,65 +1,95 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Calendar, Clock, MapPin } from "lucide-react";
 
-const CTAButton = ({ redirect, buttonText }) => {
+const CTAButton = ({ buttonText, onClick }) => {
     return (
-        <a
-            href={redirect}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#042839] py-2 px-8 flex items-center justify-center text-base font-semibold font-inter cursor-pointer text-white rounded-3xl"
+        <button
+            onClick={onClick}
+            className="bg-[#042839] w-full py-2 px-8 flex items-center justify-center text-base font-semibold font-inter cursor-pointer text-white rounded-3xl"
         >
             {buttonText}
-        </a>
+        </button>
     );
 };
 
+function randomColorSelector() {
+    const colors = [
+        '--primary-teal',
+        '--secondary-green',
+        '--secondary-yellow',
+        '--accent-coral',
+    ];
 
-function EventCard({ event }) {
+    const index = Math.floor(Math.random() * colors.length);
+    return colors[index];
+}
+
+
+
+function EventCard({ event, onCTAClick }) {
+
+    const [TypeColor, setTypeColor] = useState("--accent-peach");
+
+    useEffect(() => {
+        setTypeColor(randomColorSelector());
+    }, [])
+
     return (
-        <div className='flex flex-col items-center gap-4 rounded-2xl bg-linear-to-b from-[#A7D0F8] to-[#507CA8] p-6 md:w-xs w-[360px] h-full event-card'>
-            {/* Event Img */}
-            <div className='w-full flex items-center justify-center '>
-                <img
-                    className='rounded-full overflow-hidden size-24'
-                    src={event.imgLink} alt={event.title}
-                />
-            </div>
-            {/* Event Title */}
-            <div className='text-[#062C57] text-lg font-bold line-clamp-2 w-full'>
-                {event.title}
-            </div>
+        <div>
+            <div className='relative overflow-hidden rounded-3xl bg-slate-50 flex flex-col items-center gap-4 p-6 md:w-xs w-full h-full event-card shadow-lg hover:shadow-2xl border-2 border-(--border-light) hover:border-(--primary-teal) transition duration-500 ease-in-out hover:-translate-y-2 group'>
 
-            {/* Event Details */}
-            <div className='w-full flex flex-col gap-2 items-center'>
-                {/* Date */}
-                <div className='flex flex-row gap-2 items-center justify-start w-full'>
+                {/* <span className="absolute top-0 left-0 h-1 w-full  bg-(--accent-peach)" /> */}
 
-                    <p className='text-black text-sm font-semibold font-inter'>📅 {event.date}</p>
+
+                {/* Event Img */}
+                <div className='relative w-full flex items-center justify-center'>
+                    <div className='flex rounded-full items-center justify-center overflow-hidden size-32 border-4 border-white shadow-xl relative'>
+                        <img
+                            src={event.image_url} alt={event.title}
+                            className='h-full w-full object-cover'
+                        />
+                    </div>
+
+                    {/* Type */}
+                    <div className={`bg-(${TypeColor}) font-inter text-white absolute -bottom-1 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[9px] font-semibold uppercase tracking-widest shadow-md z-20`}>
+                        {event.event_type || "Event"}
+                    </div>
                 </div>
-                {/* Location */}
-                <div className='flex flex-row gap-2 items-center justify-start w-full'>
+                {/* Event Title */}
+                <h3 className="text-[17px] font-bold text-center mb-6 heading-font leading-tight line-clamp-2">{event.title}</h3>
 
-                    <p className='text-black text-sm font-semibold font-inter'>📍 {event.location}</p>
+                {/* Event Details */}
+                <div className='flex flex-col justify-start items-center space-y-2 mb-5 w-full'>
+                    {/* Event Date */}
+                    <div className='w-full flex justify-start items-center gap-2'>
+                        <Calendar className='size-4 text-(--primary-teal)' />
+                        <span className='text-xs text-(--text-gray) font-semibold font-inter truncate'>{event.date}</span>
+                    </div>
+
+                    {/* Event Location */}
+                    <div className='w-full flex justify-start items-center gap-2'>
+                        <MapPin className='size-4 text-(--accent-coral)' />
+                        <span className='text-xs text-(--text-gray) font-semibold font-inter truncate'>{event.location}</span>
+                    </div>
+
+                    {/* Event Timing */}
+                    <div className='w-full flex justify-start items-center gap-2'>
+                        <Clock className='size-4 text-(--secondary-yellow)' />
+                        <span className='text-xs text-(--text-gray) font-semibold font-inter truncate'>{event.time}</span>
+                    </div>
                 </div>
-                {/* Timing */}
-                <div className='flex flex-row gap-2 items-center justify-start w-full'>
 
-                    <p className='text-black text-sm font-semibold font-inter'>🕒 {event.time}</p>
+                {/* CTA Button */}
+                <div className='mt-auto w-full flex flex-col justify-center items-center transition duration-500 ease-in-out group-hover:-translate-y-1.5'>
+                    {/* Button */}
+                    <CTAButton
+                        onClick={() => onCTAClick(event)}
+                        redirect={event.redirect_link || "#"}
+                        buttonText={event.button_text || "Learn More"}
+                    />
+
                 </div>
-                {/* Event Type */}
-                <div className='flex flex-row gap-2 items-center justify-start w-full'>
-
-                    <p className='text-black text-sm font-semibold font-inter'>🩺 Type: {event.type}</p>
-                </div>
-            </div>
-
-            <div className='mt-auto w-full flex flex-col justify-center items-center'>
-                {/* Parting Line */}
-                <div className='h-px w-full bg-[#8A8888] my-2'></div>
-
-                {/* Button */}
-                <CTAButton redirect={event.redirectLink} buttonText={event.buttonText}/>
             </div>
         </div>
     )

@@ -1,20 +1,27 @@
 
 function EventCardSkeleton() {
     return (
-        <div className="flex flex-col gap-4 rounded-2xl p-6 w-xs bg-linear-to-b from-[#A7D0F8]/60 to-[#507CA8]/60 animate-pulse">
+        <div className="animate-pulse rounded-3xl border w-xs border-gray-300 bg-gray-50 p-5">
 
-            <div className="flex justify-center">
-                <div className="size-24 rounded-full bg-white/40" />
+            {/* image */}
+            <div className="mx-auto mb-3 h-20 w-20 rounded-full bg-gray-200" />
+
+            {/* badge */}
+            <div className="mx-auto mb-3 h-5 w-24 rounded-full bg-gray-200" />
+
+            {/* title */}
+            <div className="mx-auto mb-2 h-4 w-3/4 rounded bg-gray-300" />
+            <div className="mx-auto mb-4 h-4 w-1/2 rounded bg-gray-300" />
+
+            {/* meta rows */}
+            <div className="space-y-2">
+                <div className="h-3 w-2/3 rounded bg-gray-200" />
+                <div className="h-3 w-3/4 rounded bg-gray-200" />
+                <div className="h-3 w-1/2 rounded bg-gray-200" />
             </div>
 
-            <div className="h-5 w-3/4 bg-white/40 rounded" />
-            <div className="h-4 w-full bg-white/30 rounded" />
-            <div className="h-4 w-5/6 bg-white/30 rounded" />
-            <div className="h-4 w-2/3 bg-white/30 rounded" />
-
-            <div className="h-px w-full bg-white/30 my-2" />
-
-            <div className="h-10 w-full rounded-3xl bg-slate-800/40" />
+            {/* button */}
+            <div className="mt-5 h-10 w-full rounded-full bg-gray-300" />
         </div>
     );
 }
