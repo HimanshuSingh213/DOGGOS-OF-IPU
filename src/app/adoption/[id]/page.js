@@ -1,6 +1,6 @@
 import React from 'react';
 import { createClient } from '@/lib/supabase/server';
-import Footer from "@/components/Footer"; 
+import Footer from "@/components/_Footer"; 
 import Navbar from "@/components/Navbar";
 import BackButton from "@/components/BackButton";
 
