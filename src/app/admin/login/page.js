@@ -27,10 +27,10 @@ const handleLogin = async (e) => {
 
     if (signInError) throw signInError
 
-    // ADMIN EMAIL CHECK
-    if (data.user.email !== process.env.NEXT_PUBLIC_ADMIN_EMAIL) {
+    // ADMIN ROLE CHECK
+    if (data.user.user_metadata?.role !== "admin") {
       await supabase.auth.signOut()
-      throw new Error('You are not authorized to access admin panel')
+      throw new Error("You are not authorized to access admin panel")
     }
 
     router.push('/admin')
