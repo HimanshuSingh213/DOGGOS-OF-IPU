@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import ContactSection from "@/components/ContactSection";
 
 export default function JoinUsPage() {
   const GOOGLE_FORM_URL =
@@ -175,7 +175,7 @@ export default function JoinUsPage() {
         </div>
        
       </section>
-      <Footer />
+      <ContactSection />
     </main>
   );
 }

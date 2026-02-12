@@ -28,29 +28,22 @@ export async function updateSession(request) {
 
   const isAdminRoute = request.nextUrl.pathname.startsWith('/admin')
   const isLoginPage = request.nextUrl.pathname === '/admin/login'
-  const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL
 
-  // 🔒 Not logged in → redirect
+  const isAdmin = user?.user_metadata?.role === 'admin'
+
   if (isAdminRoute && !isLoginPage && !user) {
     const url = request.nextUrl.clone()
     url.pathname = '/admin/login'
     return NextResponse.redirect(url)
   }
 
-  // 🔒 Logged in but NOT admin → redirect
-  if (
-    isAdminRoute &&
-    !isLoginPage &&
-    user &&
-    user.email !== adminEmail
-  ) {
+  if (isAdminRoute && !isLoginPage && user && !isAdmin) {
     const url = request.nextUrl.clone()
     url.pathname = '/admin/login'
     return NextResponse.redirect(url)
   }
 
-  // ✅ Logged in admin visiting login page → dashboard
-  if (isLoginPage && user && user.email === adminEmail) {
+  if (isLoginPage && user && isAdmin) {
     const url = request.nextUrl.clone()
     url.pathname = '/admin'
     return NextResponse.redirect(url)

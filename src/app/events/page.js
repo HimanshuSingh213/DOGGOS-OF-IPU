@@ -165,7 +165,7 @@ function page() {
             <div className='flex items-center justify-center md:justify-start'>
 
               <div className='flex flex-row gap-1 font-inter text-[10px] text-(--primary-teal) justify-center items-center font-bold rounded-xl bg-(--primary-sky) w-fit py-1 px-2'>
-                <PawPrint className='size-[10px]' />
+                <PawPrint className='size-2.5' />
                 Student-Led Campus Dog NGO
               </div>
             </div>
@@ -201,10 +201,10 @@ function page() {
           <div className="right relative w-full md:w-1/2 flex items-center justify-center">
             {/* Soft glow behind dog */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="md:w-[380px] md:h-[380px] lg:w-[520px] lg:h-[520px] rounded-full bg-(--accent-coral)/20 blur-3xl"></div>
+              <div className="md:w-95 md:h-95 lg:w-130 lg:h-130 rounded-full bg-(--accent-coral)/20 blur-3xl"></div>
             </div>
 
-            <div ref={jumpRef} className='rounded-full border-10 border-white shadow-2xl overflow-hidden size-64 lg:size-[420px] our-hero z-10'>
+            <div ref={jumpRef} className='rounded-full border-10 border-white shadow-2xl overflow-hidden size-64 lg:size-105 our-hero z-10'>
               <img src="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?auto=format&fit=crop&q=80&w=800" alt="Our Hero"
                 className='h-full w-full object-cover '
               />
@@ -212,7 +212,7 @@ function page() {
             </div>
 
             {/* Rotating Border */}
-            <div className='absolute top-1/2 left-1/2 rounded-full -translate-1/2 border-3 border-dashed border-(--accent-coral) size-67 lg:size-[440px] animate-[spin_18s_linear_infinite]'></div>
+            <div className='absolute top-1/2 left-1/2 rounded-full -translate-1/2 border-3 border-dashed border-(--accent-coral) size-67 lg:size-110 animate-[spin_18s_linear_infinite]'></div>
 
             {/* Context icons around dog (desktop only) */}
             <PawPrint className="hidden md:block absolute top-[15%] right-[28%] size-4 text-(--primary-teal)/50" />

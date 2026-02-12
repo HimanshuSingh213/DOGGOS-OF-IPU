@@ -7,9 +7,9 @@ export async function DELETE(req) {
     const {
       data: { user },
     } = await supabase.auth.getUser()
-    if (!user || user.email !== process.env.NEXT_PUBLIC_ADMIN_EMAIL) {
+    if (!user || user.user_metadata?.role !== "admin") {
       return new Response("Unauthorized", { status: 401 })
-    }
+    } 
     const { id, image_path } = await req.json();
 
     // 1. delete from storage

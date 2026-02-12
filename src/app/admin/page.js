@@ -20,9 +20,9 @@ export default async function AdminDashboard() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user || user.email !== process.env.NEXT_PUBLIC_ADMIN_EMAIL) {
-    redirect("/admin/login");
-  }
+  if (!user || user.user_metadata?.role !== "admin") {
+  redirect("/admin/login");
+}
 
   const { data: allDogs } = await supabase.from("adoptions").select("*");
   const { data: allEvents } = await supabase.from("events").select("*");
