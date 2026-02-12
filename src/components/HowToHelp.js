@@ -55,42 +55,42 @@ useEffect(() => {
   const ways = [
     {
       title: "Adopt a Dog",
-      // description: "Give a campus dog their forever home. All dogs are vaccinated, sterilized, and ready for adoption. Change a life today.",
+      description: "Give a campus dog their forever home. All dogs are vaccinated, sterilized, and ready for adoption. Change a life today.",
       image: "/adopt-help.jpg",
       link: "/adoption",
       color: "var(--primary-teal)",
     },
     {
       title: "Volunteer With Us",
-      // description: "Join our team of 50+ active volunteers. Help with daily feeding, medical care, and making our campus safer for every dog.",
+      description: "Join our team of 50+ active volunteers. Help with daily feeding, medical care, and making our campus safer for every dog.",
       image: "/volunteer-helpp.jpg",
       link: "/join-us",
       color: "var(--secondary-green)",
     },
     {
       title: "Donate",
-      // description: "Support our mission with food supplies, medical care, or shelter costs. Every contribution helps us care for 60+ campus dogs.",
+       description: "Support our mission with food supplies, medical care, or shelter costs. Every contribution helps us care for 60+ campus dogs.",
       image: "/donate-help.png",
       link: "/donate",
       color: "var(--secondary-yellow)",
     },
     {
       title: "Events",
-      // description: "Be part of our campus events from adoption camps to awareness drives and community activites for animal welfare.",
+      description: "Be part of our campus events from adoption camps to awareness drives and community activites for animal welfare.",
       image: "/event.jpg",
       link: "/events",
       color: "var(--accent-coral)",
     },
     {
       title: "View Our Gallery",
-      // description: "Relive heartwarming moments, adoption success stories, and the everyday joy shared between our volunteers and dogs.",
+       description: "Relive heartwarming moments, adoption success stories, and the everyday joy shared between our volunteers and dogs.",
       image: "/gallery-help.png",
       link: "/gallery",
       color: "var(--primary-teal)",
     },
      {
       title: "Meet Our Team",
-      // description: "Get to know the passionate students and volunteers working behind the scenes to protect and care for campus dogs.",
+       description: "Get to know the passionate students and volunteers working behind the scenes to protect and care for campus dogs.",
       image: "/team-help.jpg",
       link: "/team",
       color: "var(--accent-coral)",
@@ -142,7 +142,8 @@ useEffect(() => {
 
                 {/* Gradient Overlay */}
                 <div 
-                  className="absolute inset-0 bg-linear-to-t from-black/95 via-black/60 to-transparent"
+                  className="absolute inset-0 bg-black/40 group-hover:bg-black/90 transition-colors duration-300"
+
                 />
 
                 {/* Content */}
@@ -157,7 +158,7 @@ useEffect(() => {
                     {way.title}
                   </h3>
                   
-                  <p className="text-white/90 text-base md:text-lg mb-3 md:mb-4 leading-relaxed line-clamp-3">
+                  <p className="text-white/90 text-base md:text-lg mb-3 md:mb-4 leading-relaxed line-clamp-3 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                     {way.description}
                   </p>
 

@@ -66,6 +66,23 @@ const EventDetail = ({ event, onClose }) => {
         }
     }, [event]);
 
+    useEffect(() => {
+        if (!event) return;
+    
+        window.history.pushState({ modalOpen: true }, "");
+    
+        const handlePopState = () => {
+            handleClose();
+        };
+    
+        window.addEventListener("popstate", handlePopState);
+    
+        return () => {
+            window.removeEventListener("popstate", handlePopState);
+        };
+    }, [event]);
+    
+
     const handleClose = () => {
         gsap.to(modalRef.current, {
             scale: 0.9,
@@ -78,6 +95,10 @@ const EventDetail = ({ event, onClose }) => {
             opacity: 0,
             duration: 0.3
         });
+
+        if (window.history.state?.modalOpen) {
+            window.history.back();
+        }
     };
 
     if (!event) return null;
