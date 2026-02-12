@@ -1,0 +1,17 @@
+import React from 'react';
+
+const AdoptionBackground = () => {
+  return (
+    <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden" style={{ backgroundColor: '#FCFBF9' }}>
+      <div 
+        className="absolute inset-0 opacity-[0.4]" 
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='600' height='600' viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3C!-- DOG FACE - Primary Anchor (Top Left) --%3E%3Cg transform='translate(50, 40) rotate(-5) scale(0.65)' fill='%23C89B6A' fill-opacity='0.18'%3E%3Cpath d='M239.71,125l-16.42-88a16,16,0,0,0-19.61-12.58l-.31.09L150.85,40h-45.7L52.63,24.56l-.31-.09A16,16,0,0,0,32.71,37.05L16.29,125a15.77,15.77,0,0,0,9.12,17.52A16.26,16.26,0,0,0,32.12,144,15.48,15.48,0,0,0,40,141.84V184a40,40,0,0,0,40,40h96a40,40,0,0,0,40-40V141.85a15.5,15.5,0,0,0,7.87,2.16,16.31,16.31,0,0,0,6.72-1.47A15.77,15.77,0,0,0,239.71,125ZM32,128h0L48.43,40,90.5,52.37Zm144,80H136V195.31l13.66-13.65a8,8,0,0,0-11.32-11.32L128,180.69l-10.34-10.35a8,8,0,0,0-11.32,11.32L120,195.31V208H80a24,24,0,0,1-24-24V123.11L107.92,56h40.15L200,123.11V184A24,24,0,0,1,176,208Zm48-80L165.5,52.37,207.57,40,224,128ZM104,140a12,12,0,1,1-12-12A12,12,0,0,1,104,140Zm72,0a12,12,0,1,1-12-12A12,12,0,0,1,176,140Z'/%3E%3C/g%3E%3C!-- BONE - Improved Size & Random Angle (Center Left) --%3E%3Cg transform='translate(150, 300) rotate(35) scale(2.8)' stroke='%23E5D3B3' stroke-width='1.2'%3E%3Cpath d='M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z'/%3E%3C/g%3E%3C!-- PAW - Offset (Center Right) --%3E%3Cg transform='translate(420, 180) rotate(15) scale(0.45)' fill='%23F2D9D9' fill-opacity='0.6'%3E%3Cpath d='M212,80a28,28,0,1,0,28,28A28,28,0,0,0,212,80Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,212,120ZM72,108a28,28,0,1,0-28,28A28,28,0,0,0,72,108ZM44,120a12,12,0,1,1,12-12A12,12,0,0,1,44,120ZM92,88A28,28,0,1,0,64,60,28,28,0,0,0,92,88Zm0-40A12,12,0,1,1,80,60,12,12,0,0,1,92,48Zm72,40a28,28,0,1,0-28-28A28,28,0,0,0,164,88Zm0-40a12,12,0,1,1-12,12A12,12,0,0,1,164,48Zm23.12,100.86a35.3,35.3,0,0,1-16.87-21.14,44,44,0,0,0-84.5,0A35.25,35.25,0,0,1,69,148.82,40,40,0,0,0,88,224a39.48,39.48,0,0,0,15.52-3.13,64.09,64.09,0,0,1,48.87,0,40,40,0,0,0,34.73-72ZM168,208a24,24,0,0,1-9.45-1.93,80.14,80.14,0,0,0-61.19,0,24,24,0,0,1-20.71-43.26,51.22,51.22,0,0,0,24.46-30.67,28,28,0,0,1,53.78,0,51.27,51.27,0,0,0,24.53,30.71A24,24,0,0,1,168,208Z'/%3E%3C/g%3E%3C!-- PLAIN BALL - Floating (Bottom Left) --%3E%3Cg transform='translate(80, 480) scale(2.2)' stroke='%23A3D9D6' stroke-width='1.5'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3C/g%3E%3C!-- SYMMETRICAL SUN - (Top Right) --%3E%3Cg transform='translate(400, 40) rotate(10) scale(2)' stroke='%23F4E0A1' stroke-width='1.5'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Cpath d='M12 3v2m0 14v2M3 12h2m14 0h2m-15.4-6.4 1.4 1.4m10 10 1.4 1.4m0-12.8-1.4 1.4m-10 10-1.4 1.4'/%3E%3C/g%3E%3C!-- SCENIC TENT TREE - (Bottom Center) --%3E%3Cg transform='translate(350, 420) scale(2.8)' stroke='%23A3D9D6' stroke-width='1.2'%3E%3Ccircle cx='4' cy='4' r='2'/%3E%3Cpath d='m14 5 3-3 3 3m-6 5 3-3 3 3M17 14V2M17 14H7l-5 8h20ZM8 14v8m1-8 5 8'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '600px 600px',
+        }}
+      />
+    </div>
+  );
+};
+
+export default AdoptionBackground;
