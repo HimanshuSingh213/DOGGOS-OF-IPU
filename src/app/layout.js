@@ -1,6 +1,6 @@
 
 import { Poppins, Inter } from "next/font/google";
-
+import "leaflet/dist/leaflet.css";
 import "./globals.css";
 
 
