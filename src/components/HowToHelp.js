@@ -56,28 +56,28 @@ useEffect(() => {
     {
       title: "Adopt a Dog",
       description: "Give a campus dog their forever home. All dogs are vaccinated, sterilized, and ready for adoption. Change a life today.",
-      image: "/adopt-help.jpg",
+      image: "/adopt.JPG",
       link: "/adoption",
       color: "var(--primary-teal)",
     },
     {
       title: "Volunteer With Us",
       description: "Join our team of 50+ active volunteers. Help with daily feeding, medical care, and making our campus safer for every dog.",
-      image: "/volunteer-helpp.jpg",
+      image: "/volunteer.jpeg",
       link: "/join-us",
       color: "var(--secondary-green)",
     },
     {
       title: "Donate",
        description: "Support our mission with food supplies, medical care, or shelter costs. Every contribution helps us care for 60+ campus dogs.",
-      image: "/donate-help.png",
+      image: "/donate.JPG",
       link: "/donate",
       color: "var(--secondary-yellow)",
     },
     {
       title: "Events",
       description: "Be part of our campus events from adoption camps to awareness drives and community activites for animal welfare.",
-      image: "/event.jpg",
+      image: "/event.jpeg",
       link: "/events",
       color: "var(--accent-coral)",
     },
@@ -91,7 +91,7 @@ useEffect(() => {
      {
       title: "Meet Our Team",
        description: "Get to know the passionate students and volunteers working behind the scenes to protect and care for campus dogs.",
-      image: "/team-help.jpg",
+      image: "/team.jpeg",
       link: "/team",
       color: "var(--accent-coral)",
     },
@@ -126,7 +126,7 @@ useEffect(() => {
                 ref={(el) => (cardsRef.current[index] = el)}
                 className="relative overflow-hidden rounded-2xl md:rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer group"
                 style={{
-                  height: "350px",
+                  height: "300px",
                 }}
               >
                 {/* Background Image */}

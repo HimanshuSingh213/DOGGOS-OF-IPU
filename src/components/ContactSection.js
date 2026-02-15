@@ -43,7 +43,7 @@ export default function ContactSection() {
 
           {/* top title */}
           <div className="text-center mb-14">
-            <h2 className="text-5xl font-bold tracking-wide">DOGGOS IPU</h2>
+            <h2 className="text-5xl font-bold tracking-wide">DOGGOS OF IPU</h2>
             <p className="text-yellow-300 text-xl mt-2">
               Care. Rescue. Love.
             </p>
@@ -116,15 +116,9 @@ export default function ContactSection() {
                     Events
                   </Link>
                 </li>
-
-
-
               </ul>
 
             </div>
-
-
-
             {/* Instagram */}
             <div>
               <h3 className="text-2xl font-semibold mb-4">Follow Us</h3>
@@ -139,7 +133,7 @@ export default function ContactSection() {
                   className="w-8 h-8"
                   alt="Instagram"
                 />
-                <span className="font-medium">@doggosipu</span>
+                <span className="font-medium">@doggosofipu</span>
               </a>
             </div>
 
@@ -147,7 +141,16 @@ export default function ContactSection() {
 
           {/* divider */}
           <div className="mt-16 border-t border-white/30 pt-6 text-center text-sm text-white/80">
-            © 2026 DOGGOS IPU. All Rights Reserved.
+           Made by{" "}
+            <Link
+              href="https://dev-source-portfolio01.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className=" hover:text-teal-300 transition underline"
+            >
+              DevSource
+            </Link>{" "}
+            | © 2026 DOGGOS OF IPU. All Rights Reserved.
           </div>
 
         </div>

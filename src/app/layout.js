@@ -3,8 +3,6 @@ import { Poppins, Inter } from "next/font/google";
 import "leaflet/dist/leaflet.css";
 import "./globals.css";
 
-
-
 const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
@@ -20,6 +18,9 @@ const inter = Inter({
 export const metadata = {
   title: "Doggos of IPU 🐶",
   description: "Official website for Doggos of IPU",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
